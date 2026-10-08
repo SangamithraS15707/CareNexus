@@ -1,0 +1,20 @@
+# Java
+**/target/
+
+# Node
+**/node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment / secrets
+.env
+
+# Logs
+*.log
