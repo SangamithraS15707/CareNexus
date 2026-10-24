@@ -26,6 +26,9 @@ public class User {
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+    
+    @Column(nullable = false)
+    private boolean emailVerified = false;
 
     protected User() {
     }
@@ -60,4 +63,12 @@ public class User {
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
+
+    public boolean isEmailVerified() {
+    return emailVerified;
+}
+
+   public void setEmailVerified(boolean emailVerified) {
+    this.emailVerified = emailVerified;
+}
 }

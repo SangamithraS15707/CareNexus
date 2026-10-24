@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 
 import org.springframework.security.core.Authentication;
 import java.util.Map;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -64,6 +66,16 @@ public Map<String, String> me(Authentication authentication) {
     return Map.of(
         "email", authentication.getName(),
         "message", "You are authenticated"
+    );
+}
+@GetMapping("/verify-email")
+public ResponseEntity<String> verifyEmail(
+        @RequestParam("token") String token) {
+
+    authService.verifyEmail(token);
+
+    return ResponseEntity.ok(
+            "Email verified successfully! You can now log in."
     );
 }
 }
